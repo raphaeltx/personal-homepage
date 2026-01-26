@@ -4,6 +4,10 @@
 
 body {
   @apply bg-white text-gray-900;
+
+  button {
+    @apply transition-colors duration-300;
+  }
 }
 
 :is(.dark body) {

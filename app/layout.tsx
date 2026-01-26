@@ -5,18 +5,16 @@ import Navbar from "./components/navbar/Navbar";
 import MainWrapper from "./components/main-wrapper/MainWrapper";
 import { TerminalFocusProvider } from "./context/TerminalFocusContext";
 
-/**
- * Metadata for the application.
- */
 export const metadata: Metadata = {
   title: "Raphael",
   description: "Personal page",
 };
 
 /**
- * Root layout component that wraps the entire application.
+ * RootLayout component that wraps the entire application with HTML structure,
+ * theme provider, navbar, and terminal focus context.
  * @param children - The child components to be rendered within the layout.
- * @returns JSX.Element The RootLayout component.
+ * @returns JSX.Element representing the root layout.
  */
 export default function RootLayout({
   children,
@@ -25,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <TerminalFocusProvider>

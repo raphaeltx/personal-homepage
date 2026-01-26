@@ -7,10 +7,10 @@ Personal website built with Next.js.
 - ⚡ Built with Next.js 16 (App Router)
 - 🎨 Tailwind CSS v4 for styling
 - 🌓 Dark/Light theme with system preference support
-- 🌐 Language support with i18n (English and Portuguese)
+- 💻 Interactive terminal-style interface
 - 📱 Fully responsive design
 - ⚙️ TypeScript for type safety
-- 🎯 Zero-config setup
+- 🎯 Clean code architecture with component separation
 
 ## Tech Stack
 
@@ -60,10 +60,46 @@ pnpm run build
 personal-homepage/
 ├── app/
 │   ├── components/
+│   │   ├── about/
+│   │   │   ├── About.tsx
+│   │   │   ├── AsciiBanner.tsx
+│   │   │   ├── CodeProperty.tsx
+│   │   │   ├── CodeArrayProperty.tsx
+│   │   │   ├── EducationSection.tsx
+│   │   │   └── FooterComments.tsx
+│   │   ├── command-not-found/
+│   │   │   └── CommandNotFound.tsx
+│   │   ├── contact/
+│   │   │   └── Contact.tsx
+│   │   ├── help/
+│   │   │   └── Help.tsx
+│   │   ├── main-wrapper/
+│   │   │   └── MainWrapper.tsx
+│   │   ├── navbar/
+│   │   │   └── Navbar.tsx
+│   │   ├── skills/
+│   │   │   └── Skills.tsx
+│   │   ├── terminal/
+│   │   │   └── Terminal.tsx
+│   │   ├── terminal-input/
+│   │   │   └── TerminalInput.tsx
 │   │   ├── theme-provider/
+│   │   │   └── ThemeProvider.tsx
 │   │   ├── theme-toggle/
-│   │   └── terminal/
-│   ├── about/
+│   │   │   └── ThemeToggle.tsx
+│   │   └── welcome/
+│   │       ├── Welcome.tsx
+│   │       ├── WelcomeGreeting.tsx
+│   │       ├── HowItWorksSection.tsx
+│   │       ├── BeginnerGuideSection.tsx
+│   │       └── CallToAction.tsx
+│   ├── constants/
+│   │   ├── developerData.ts
+│   │   └── welcomeData.ts
+│   ├── context/
+│   │   └── TerminalFocusContext.tsx
+│   ├── utils/
+│   │   └── dateCalculations.ts
 │   ├── layout.tsx
 │   └── page.tsx
 ├── assets/

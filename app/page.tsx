@@ -1,8 +1,8 @@
 import Terminal from "./components/terminal/Terminal";
 
 /**
- * Home page component.
- * @returns JSX.Element The Home component.
+ * Home page component that renders the Terminal within a styled container.
+ * @returns JSX.Element representing the home page.
  */
 export default function Home() {
   return (

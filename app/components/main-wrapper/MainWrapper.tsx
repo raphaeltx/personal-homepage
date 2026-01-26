@@ -19,14 +19,13 @@ export default function MainWrapper({
     inputRef.current = document.getElementById(
       "terminal-input",
     ) as HTMLDivElement;
-
-    console.log("Input Ref:", inputRef.current);
-
-    handleMainClick();
+    
+    if (inputRef.current && document.activeElement !== inputRef.current) {
+      inputRef.current.focus();
+    }
   }, [version]);
 
   const handleMainClick = () => {
-    console.log("Main area clicked");
     inputRef.current?.focus();
   };
 
