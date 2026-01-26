@@ -1,3 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@variant dark (&:is(.dark *));
+
+body {
+  @apply bg-white text-gray-900;
+
+  button {
+    @apply transition-colors duration-300;
+  }
+}
+
+:is(.dark body) {
+  @apply bg-gray-950 text-gray-100;
+}
