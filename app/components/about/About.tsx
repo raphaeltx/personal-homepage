@@ -61,7 +61,49 @@ export default function About() {
         />
 
         <CodeArrayProperty propertyName="roles" items={DEVELOPER_INFO.roles} />
-        <CodeArrayProperty propertyName="stack" items={DEVELOPER_INFO.stack} />
+
+        <div className="ml-4">
+          <span className="text-purple-600 dark:text-purple-400">stack:</span>{" "}
+          <span className="text-gray-600 dark:text-gray-400">{"{"}</span>
+        </div>
+        <CodeArrayProperty
+          propertyName="languages"
+          items={DEVELOPER_INFO.stack.languages}
+          indent={8}
+        />
+        <CodeArrayProperty
+          propertyName="frameworks"
+          items={DEVELOPER_INFO.stack.frameworks}
+          indent={8}
+        />
+        <CodeArrayProperty
+          propertyName="runtime"
+          items={DEVELOPER_INFO.stack.runtime}
+          indent={8}
+        />
+        <CodeArrayProperty
+          propertyName="versionControl"
+          items={DEVELOPER_INFO.stack.versionControl}
+          indent={8}
+        />
+        <CodeArrayProperty
+          propertyName="ides"
+          items={DEVELOPER_INFO.stack.ides}
+          indent={8}
+        />
+        <CodeArrayProperty
+          propertyName="testing"
+          items={DEVELOPER_INFO.stack.testing}
+          indent={8}
+        />
+        <CodeArrayProperty
+          propertyName="devops"
+          items={DEVELOPER_INFO.stack.devops}
+          indent={8}
+        />
+        <div className="ml-4">
+          <span className="text-gray-600 dark:text-gray-400">{"}"}</span>,
+        </div>
 
         <div className="text-gray-600 dark:text-gray-400">{"}"}</div>
 
