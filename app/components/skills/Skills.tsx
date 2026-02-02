@@ -89,7 +89,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="mb-8 mt-4 space-y-3">
+    <section id="skills" className="mb-4 mt-4 space-y-3">
       {sections.map((section) => (
         <SkillSection
           key={section.key}

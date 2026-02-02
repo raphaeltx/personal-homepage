@@ -23,13 +23,13 @@ export function ThemeToggle() {
   return (
     <div>
       <span
-        className="cursor-pointer hover:opacity-70 transition-opacity"
+        className="cursor-pointer hover:opacity-70 transition-opacity mr-10"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
         {theme === "dark" ? (
-          <Sun className="text-9xl" />
+          <Sun size={32} />
         ) : (
-          <Moon className="text-9xl" />
+          <Moon size={32} />
         )}
       </span>
     </div>

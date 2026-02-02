@@ -16,7 +16,7 @@ import CallToAction from "./CallToAction";
  */
 export default function Welcome() {
   return (
-    <div className="my-2 font-mono text-sm">
+    <div className="my-2 mt-4 font-mono text-sm">
       <AsciiBanner text={WELCOME_ASCII} />
 
       <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">

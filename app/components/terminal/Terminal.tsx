@@ -10,6 +10,7 @@ import Contact from "../contact/Contact";
 import UnderConstruction from "../under-construction/UnderConstruction";
 import Welcome from "../welcome/Welcome";
 import Skills from "../skills/Skills";
+import OutputWrapper from "../output-wrapper/OutputWrapper";
 
 /**
  * Terminal input data interface.
@@ -34,6 +35,23 @@ export default function Terminal() {
   const handleSubmit = (input: TerminalInputData) => {
     switch (input.value.toLowerCase()) {
       case "":
+        return;
+      case "welcome":
+        setInputList((prev) => {
+          const newList = [
+            ...prev.map((item) =>
+              item === input
+                ? { ...item, isSubmitted: true, output: <Welcome /> }
+                : item,
+            ),
+            {
+              value: "",
+              isSubmitted: false,
+            },
+          ];
+          return newList;
+        });
+        bump();
         return;
       case "cls":
       case "clear":
@@ -65,7 +83,11 @@ export default function Terminal() {
                 ? {
                     ...item,
                     isSubmitted: true,
-                    output: <About />,
+                    output: (
+                      <OutputWrapper>
+                        <About />
+                      </OutputWrapper>
+                    ),
                   }
                 : item,
             ),
@@ -86,7 +108,11 @@ export default function Terminal() {
                 ? {
                     ...item,
                     isSubmitted: true,
-                    output: <Skills />,
+                    output: (
+                      <OutputWrapper>
+                        <Skills />
+                      </OutputWrapper>
+                    ),
                   }
                 : item,
             ),
@@ -107,7 +133,11 @@ export default function Terminal() {
                 ? {
                     ...item,
                     isSubmitted: true,
-                    output: <UnderConstruction />,
+                    output: (
+                      <OutputWrapper>
+                        <UnderConstruction feature="GitHub integration" />
+                      </OutputWrapper>
+                    ),
                   }
                 : item,
             ),
@@ -128,7 +158,11 @@ export default function Terminal() {
                 ? {
                     ...item,
                     isSubmitted: true,
-                    output: <Contact />,
+                    output: (
+                      <OutputWrapper>
+                        <Contact />
+                      </OutputWrapper>
+                    ),
                   }
                 : item,
             ),
@@ -166,22 +200,34 @@ export default function Terminal() {
   };
 
   return (
-    <div className="p-5">
-      {inputList.map((input, index) => (
-        <React.Fragment key={index}>
-          <TerminalInput
-            value={input.value}
-            isSubmitted={input.isSubmitted}
-            onChange={(newValue) => {
-              const newInputList = [...inputList];
-              newInputList[index].value = newValue;
-              setInputList(newInputList);
-            }}
-            onSubmit={() => handleSubmit(input)}
-          />
-          {input.output && <div className="mb-1">{input.output}</div>}
-        </React.Fragment>
-      ))}
+    <div className="flex items-start gap-8 pt-5 pb-5 pl-20 pr-20">
+      {/* Terminal Section */}
+      <div className="flex-1">
+        {inputList.map((input, index) => (
+          <React.Fragment key={index}>
+            <TerminalInput
+              value={input.value}
+              isSubmitted={input.isSubmitted}
+              onChange={(newValue) => {
+                const newInputList = [...inputList];
+                newInputList[index].value = newValue;
+                setInputList(newInputList);
+              }}
+              onSubmit={() => handleSubmit(input)}
+            />
+            {input.output && <div className="mb-1">{input.output}</div>}
+          </React.Fragment>
+        ))}
+      </div>
+
+      {/* Image Section
+      <div className="flex-shrink-0 w-64 h-64">
+        <img
+          src="/placeholder-image.jpg"
+          alt="Terminal companion image"
+          className="w-full h-full object-cover rounded-lg shadow-lg"
+        />
+      </div> */}
     </div>
   );
 }

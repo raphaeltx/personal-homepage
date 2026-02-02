@@ -8,7 +8,7 @@ export default function Help() {
     { name: "about", description: "Learn more about me" },
     { name: "skills", description: "View my technical skills" },
     { name: "github", description: "View my GitHub source code repository" },
-    { name: "clear", description: "Clear the terminal screen" },
+    { name: "clear or cls", description: "Clear the terminal screen" },
     { name: "contact", description: "Get my contact information" },
   ];
 
