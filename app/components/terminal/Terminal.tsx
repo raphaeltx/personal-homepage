@@ -9,6 +9,7 @@ import About from "../about/About";
 import Contact from "../contact/Contact";
 import UnderConstruction from "../under-construction/UnderConstruction";
 import Welcome from "../welcome/Welcome";
+import Skills from "../skills/Skills";
 
 /**
  * Terminal input data interface.
@@ -34,6 +35,7 @@ export default function Terminal() {
     switch (input.value.toLowerCase()) {
       case "":
         return;
+      case "cls":
       case "clear":
         setInputList([{ value: "", isSubmitted: false }]);
         bump();
@@ -76,8 +78,28 @@ export default function Terminal() {
         });
         bump();
         return;
-      case "github":
       case "skills":
+        setInputList((prev) => {
+          const newList = [
+            ...prev.map((item) =>
+              item === input
+                ? {
+                    ...item,
+                    isSubmitted: true,
+                    output: <Skills />,
+                  }
+                : item,
+            ),
+            {
+              value: "",
+              isSubmitted: false,
+            },
+          ];
+          return newList;
+        });
+        bump();
+        return;
+      case "github":
         setInputList((prev) => {
           const newList = [
             ...prev.map((item) =>
