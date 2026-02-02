@@ -3,7 +3,7 @@
  * and a message indicating that the feature is under construction.
  * @returns JSX.Element representing the Under Construction message.
  */
-export default function UnderConstruction() {
+export default function UnderConstruction({ feature }: { feature: string }) {
   return (
     <div className="my-2 font-mono text-sm">
       <pre className="text-yellow-600 dark:text-yellow-400 text-xs mb-3 leading-tight">
@@ -19,7 +19,7 @@ export default function UnderConstruction() {
         <div>
           <span className="text-cyan-600 dark:text-cyan-400">$</span>{" "}
           <span className="text-red-600 dark:text-red-400">Error 503:</span>{" "}
-          Sorry about that. It's unavailable right now.
+          Sorry about that. The {feature} feature is unavailable right now.
         </div>
 
         <div className="ml-4 leading-relaxed">
