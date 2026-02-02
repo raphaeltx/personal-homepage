@@ -9,11 +9,10 @@ interface SkillSectionProps {
   color: ColorVariant;
   isCollapsed: boolean;
   onToggle: () => void;
-  onSelectItem?: (item: string) => void;
 }
 
 /**
- * Get color classes based on the color variant and selection state.
+ * Get color classes based on the color variant.
  * @param color The color variant.
  * @returns An object containing header and item classes.
  */
@@ -22,27 +21,22 @@ const getColorClasses = (color: ColorVariant) => {
     green: {
       header: "text-green-400 hover:text-green-300",
       item: "text-green-300 hover:text-green-400 hover:bg-green-500/10",
-      selected: "bg-green-500/20 text-green-400",
     },
     cyan: {
       header: "text-cyan-400 hover:text-cyan-300",
       item: "text-cyan-300 hover:text-cyan-400 hover:bg-cyan-500/10",
-      selected: "bg-cyan-500/20 text-cyan-400",
     },
     yellow: {
       header: "text-yellow-400 hover:text-yellow-300",
       item: "text-yellow-300 hover:text-yellow-400 hover:bg-yellow-500/10",
-      selected: "bg-yellow-500/20 text-yellow-400",
     },
     blue: {
       header: "text-blue-400 hover:text-blue-300",
       item: "text-blue-300 hover:text-blue-400 hover:bg-blue-500/10",
-      selected: "bg-blue-500/20 text-blue-400",
     },
     purple: {
       header: "text-purple-400 hover:text-purple-300",
       item: "text-purple-300 hover:text-purple-400 hover:bg-purple-500/10",
-      selected: "bg-purple-500/20 text-purple-400",
     },
   };
 
@@ -57,7 +51,7 @@ const getColorClasses = (color: ColorVariant) => {
  * @param props The props for the SkillSection component.
  * @returns JSX.Element representing the SkillSection.
  */
-export function SkillSection({
+export default function SkillSection({
   title,
   items,
   color,
@@ -71,7 +65,7 @@ export function SkillSection({
         onClick={onToggle}
         className={`flex items-center gap-2 transition-colors w-full cursor-pointer ${getColorClasses(color).header}`}
       >
-        <span className="text-gray-600">{!isCollapsed ? "▸" : "▾"}</span>
+        <span className="text-gray-600">{isCollapsed ? "▸" : "▾"}</span>
         <span className="font-semibold">{title}</span>
         <span className="text-gray-600 text-sm">({items.length})</span>
       </button>

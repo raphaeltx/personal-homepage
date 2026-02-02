@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { DEVELOPER_INFO } from "@/app/constants/developerData";
-import { SkillSection } from "./SkillSection";
+import SkillSection from "./SkillSection";
 
 /**
  * Section keys for the Skills component.
@@ -21,7 +21,7 @@ type SectionKey =
  * Skills component displays various skill sections.
  * @returns JSX.Element representing the Skills component.
  */
-export function Skills() {
+export default function Skills() {
   const [collapsed, setCollapsed] = useState<Record<SectionKey, boolean>>({
     roles: true,
     languages: false,

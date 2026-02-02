@@ -9,7 +9,7 @@ import About from "../about/About";
 import Contact from "../contact/Contact";
 import UnderConstruction from "../under-construction/UnderConstruction";
 import Welcome from "../welcome/Welcome";
-import { Skills } from "../skills/Skills";
+import Skills from "../skills/Skills";
 
 /**
  * Terminal input data interface.
